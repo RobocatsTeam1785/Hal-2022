@@ -1,0 +1,23 @@
+[
+  {
+    "artifact": "frcJava (in project Haylee\u0027s Project)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "Haylee\u0027s Project",
+    "language": "java"
+  },
+  {
+    "artifact": "frcJava (in project HayleeAllison)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "HayleeAllison",
+    "language": "java"
+  },
+  {
+    "artifact": "frcJava (in project LocalHalCopy)",
+    "target": "roborio",
+    "debugfile": "frcJava_roborio.debugconfig",
+    "project": "LocalHalCopy",
+    "language": "java"
+  }
+]
