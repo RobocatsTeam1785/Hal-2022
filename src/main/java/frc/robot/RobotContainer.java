@@ -31,7 +31,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     drive.setDefaultCommand(new RunCommand(
-        () -> drive.arcadeDrive(-controller.getY(GenericHID.Hand.kLeft), controller.getX(GenericHID.Hand.kLeft)),
+        () -> drive.arcadeDrive(-controller.getLeftY(), controller.getLeftX()),
         drive));
 
   }
