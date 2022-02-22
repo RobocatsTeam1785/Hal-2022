@@ -1,9 +1,0 @@
-[
-  {
-    "artifact": "frcJava (in project LocalHalCopy)",
-    "target": "roborio",
-    "debugfile": "frcJava_roborio.debugconfig",
-    "project": "LocalHalCopy",
-    "language": "java"
-  }
-]

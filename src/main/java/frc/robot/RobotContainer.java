@@ -9,8 +9,12 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.PneumaticSubsystem;
 import edu.wpi.first.wpilibj2.command.*;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj.DriverStation;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -22,6 +26,7 @@ import edu.wpi.first.wpilibj2.command.*;
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem drive = new DriveSubsystem();
+  private final PneumaticSubsystem pneumatics = new PneumaticSubsystem();
   private final XboxController controller = new XboxController(0);
 
   /**
@@ -31,7 +36,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     drive.setDefaultCommand(new RunCommand(
-        () -> drive.arcadeDrive(-controller.getY(GenericHID.Hand.kLeft), controller.getX(GenericHID.Hand.kLeft)),
+        () -> drive.arcadeDrive(-controller.getLeftX(), controller.getLeftY()),
         drive));
 
   }
@@ -43,6 +48,8 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    new JoystickButton(controller, Button.kRightBumper.value).whenPressed(() -> pneumatics.toggleSolenoid());
+    new JoystickButton(controller, Button.kLeftBumper.value).whenPressed(() -> pneumatics.toggleCompressor());
 
   }
 

@@ -10,10 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
-
-import edu.wpi.first.wpilibj.Encoder;
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 public class DriveSubsystem extends SubsystemBase {
@@ -23,8 +20,8 @@ public class DriveSubsystem extends SubsystemBase {
   private WPI_TalonSRX talon3 = new WPI_TalonSRX(15);// right main
   private WPI_TalonSRX talon4 = new WPI_TalonSRX(11);//right slave not main
 
-  private SpeedControllerGroup left = new SpeedControllerGroup(talon1, talon2);
-  private SpeedControllerGroup right = new SpeedControllerGroup(talon3, talon4);
+  private MotorControllerGroup left = new MotorControllerGroup(talon1, talon2);
+  private MotorControllerGroup right = new MotorControllerGroup(talon3, talon4);
 
   private DifferentialDrive drive = new DifferentialDrive(left, right);
 
