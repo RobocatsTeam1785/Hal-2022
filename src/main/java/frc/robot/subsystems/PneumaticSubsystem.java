@@ -36,7 +36,7 @@ public class PneumaticSubsystem extends SubsystemBase {
     }
   }
 
-  // toggles compressor
+  // Enables or Disables the Compressor depending on its current state
   public void toggleCompressor() {
     if (compressor.enabled()) {
       compressor.disable();
@@ -44,12 +44,12 @@ public class PneumaticSubsystem extends SubsystemBase {
       compressor.enableDigital();
     }
   }
-
+// Enables or Disables the pneumatic depending on its current state
   public void toggleSolenoid() {
     climbSolenoid.toggle();
   }
 
-  // updates smartdashboard with information
+  // updates smartdashboard
   @Override
   public void periodic() {
     if (compressor != null) {
