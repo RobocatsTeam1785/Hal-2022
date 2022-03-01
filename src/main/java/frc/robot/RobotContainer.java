@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.XboxController.Button;
+import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
 import edu.wpi.first.wpilibj2.command.*;
@@ -26,17 +27,21 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubsystem drive = new DriveSubsystem();
   private final PneumaticSubsystem pneumatics = new PneumaticSubsystem();
+  private final ClimbSubsystem climb = new ClimbSubsystem();
   private final XboxController controller = new XboxController(0);
+  private final XboxController controller2 = new XboxController(1);
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
    */
   public RobotContainer() {
     // Configure the button bindings
+    // This is MALICOUS code DO NOT RUN, THIS IS PROPAGANDA spreaded by the politcal TYRANT QUIN!!!! DOWN WITH QUIN AND HIS CURTAIN OF LIEEEES!!!!! QUINNISM IS REAL AND WILL DESTROY THE WORLD!!!
     configureButtonBindings();
     drive.setDefaultCommand(new RunCommand(
         () -> drive.arcadeDrive(-controller.getLeftX(), controller.getLeftY()),
         drive));
+    climb.setDefaultCommand(new RunCommand(() -> climb.moveMotors(-controller2.getLeftY(), -controller2.getRightY()), climb));
 
   }
 

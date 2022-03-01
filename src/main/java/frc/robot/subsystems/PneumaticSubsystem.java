@@ -27,7 +27,7 @@ public class PneumaticSubsystem extends SubsystemBase {
 
   // sets default mode of the compressor
   public void init() {
-
+    System.out.println("Why?");
     if (compressor != null) {
       compressor.enableDigital();
     }

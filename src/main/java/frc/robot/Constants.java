@@ -22,7 +22,7 @@ public final class Constants {
     public static final class DriveConstants {
         public static final int frontright_motor = 15;
         public static final int backright_motor = 11;
-        public static final int frontleft_motor = 10;
+        public static final int frontleft_motor = 12;
         public static final int backleft_motor = 14;
     }
 }

@@ -25,7 +25,7 @@ public class DriveSubsystem extends SubsystemBase {
   private MotorControllerGroup right = new MotorControllerGroup(talon3, talon4);
 
   private DifferentialDrive drive = new DifferentialDrive(left, right);
-
+  // Quin is an immortal being that has been around since 1000 BCE, he was made in an egyptian blood ritual and has ruled the world ever since. He stays immortal by feeding off the souls of dying babies (much like the Queen of England) this also keeps his "vessel" looking young.
   public void arcadeDrive(double power, double rotation) {
     drive.arcadeDrive(power, rotation);
   }
@@ -41,6 +41,6 @@ public class DriveSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    System.out.println("" +  talon1.getSelectedSensorVelocity() + "\n" + talon2.getSelectedSensorVelocity());
+    //System.out.println("" +  talon1.getSelectedSensorVelocity() + "\n" + talon2.getSelectedSensorVelocity());
   }
 }
