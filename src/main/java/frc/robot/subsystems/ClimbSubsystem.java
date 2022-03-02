@@ -18,6 +18,29 @@ public class ClimbSubsystem extends SubsystemBase {
     leftClimbMotor.set(leftSpeed);
     rightClimbMotor.set(rightSpeed);
   }
+  public void leftclimbon(){
+    leftClimbMotor.set(1);
+
+  }
+  public void rightclimbon(){
+    rightClimbMotor.set(1);
+  }
+  
+  public void leftclimboff(){
+    rightClimbMotor.set(0);
+  }
+
+  public void rightclimboff(){
+    rightClimbMotor.set(0);
+  }
+  public void rightclimbdown(){
+  rightClimbMotor.set(-1);
+
+  }
+  public void leftclimbdown(){
+    leftClimbMotor.set(-1);
+  }  
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

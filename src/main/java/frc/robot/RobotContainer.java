@@ -9,6 +9,7 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Axis;
 import edu.wpi.first.wpilibj.XboxController.Button;
 import frc.robot.subsystems.ClimbSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
@@ -36,12 +37,12 @@ public class RobotContainer {
    */
   public RobotContainer() {
     // Configure the button bindings
-    // This is MALICOUS code DO NOT RUN, THIS IS PROPAGANDA spreaded by the politcal TYRANT QUIN!!!! DOWN WITH QUIN AND HIS CURTAIN OF LIEEEES!!!!! QUINNISM IS REAL AND WILL DESTROY THE WORLD!!!
+    // This is MALICOUS code DO NOT RUN, THIS IS PROPAGANDA spreaded by the politcal
+    // TYRANT QUIN!!!! DOWN WITH QUIN AND HIS CURTAIN OF LIEEEES!!!!! QUINNISM IS
+    // REAL AND WILL DESTROY THE WORLD!!!
     configureButtonBindings();
-    drive.setDefaultCommand(new RunCommand(
-        () -> drive.arcadeDrive(-controller.getLeftX(), controller.getLeftY()),
-        drive));
-    climb.setDefaultCommand(new RunCommand(() -> climb.moveMotors(-controller2.getLeftY(), -controller2.getRightY()), climb));
+    drive.setDefaultCommand(
+        new RunCommand(() -> drive.arcadeDrive(controller.getLeftY(), controller.getLeftX()), drive));
 
   }
 
@@ -52,9 +53,22 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(controller, Button.kRightBumper.value).whenPressed(() -> pneumatics.toggleSolenoid());
-    new JoystickButton(controller, Button.kLeftBumper.value).whenPressed(() -> pneumatics.toggleCompressor());
+    new JoystickButton(controller2, Button.kX.value).whenPressed(() -> pneumatics.toggleSolenoid());
+    new JoystickButton(controller2, Button.kB.value).whenPressed(() -> pneumatics.toggleCompressor());
+    // bumpers that make the arms go up
+    new JoystickButton(controller2, Button.kRightBumper.value).whenHeld(new InstantCommand(() -> climb.rightclimbon(),climb));
+    new JoystickButton(controller2, Button.kRightBumper.value).whenInactive(new InstantCommand(() -> climb.rightclimboff(),climb));
+    new JoystickButton(controller2, Button.kLeftBumper.value).whenHeld(new InstantCommand(() -> climb.leftclimbon(),climb));
+    new JoystickButton(controller2, Button.kLeftBumper.value).whenInactive(new InstantCommand(() -> climb.leftclimboff(),climb));
+    //triggers for making the arms go down 
+    new JoystickButton(controller2, Axis.kRightTrigger.value).whenHeld(new InstantCommand(() -> climb.leftclimboff(),climb));
+    new JoystickButton(controller2, Axis.kRightTrigger.value).whenInactive(new InstantCommand(() -> climb.rightclimboff(),climb));
+    new JoystickButton(controller2, Axis.kLeftTrigger.value).whenHeld(new InstantCommand(() -> climb.leftclimbon(),climb));
+    new JoystickButton(controller2, Axis.kLeftTrigger.value).whenInactive(new InstantCommand(() -> climb.leftclimboff(),climb));
+  }
 
+  private void thisWillbeAlambda(){
+    
   }
 
   /**
